@@ -1,0 +1,29 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: check-case-conflict
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+  - repo: local
+    hooks:
+      - id: gofmt
+        name: gofmt
+        entry: bash -c 'go fmt ./... && cd tools && go fmt ./...'
+        language: system
+        types: [ go ]
+        pass_filenames: false
+      - id: addlicense
+        name: Add License
+        entry: go tool -modfile=tools/go.mod addlicense -c 'variHQ OÜ' -l 'BSD-3-Clause' -s=only
+        language: system
+        types: [ file ]
+        exclude: '\.(hcl|yaml|yml)$'
+      - id: golangci-lint
+        name: golangci-lint
+        entry: go tool -modfile=tools/go.mod golangci-lint run
+        language: system
+        types: [ go ]
+        pass_filenames: false
