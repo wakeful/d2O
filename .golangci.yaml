@@ -3,6 +3,7 @@ linters:
   default: all
   disable:
     - exhaustruct
+    - exhaustruct_v5
     - gomodguard # deprecated (since v2.2.0)
     - wsl # deprecated (since v2.2.0)
   settings:

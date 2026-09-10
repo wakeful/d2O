@@ -25,7 +25,7 @@ Usage of d2O:
 
 ```shell
 # via the Go toolchain
-go install github.com/wakeful/d2O
+go install github.com/wakeful/d2O@latest
 ```
 
 #### Using a binary release

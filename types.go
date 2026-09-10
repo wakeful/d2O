@@ -29,8 +29,8 @@ type ServiceIAM interface {
 }
 
 var (
-	_ iam.ListPoliciesAPIClient       = (ServiceIAM)(nil)
-	_ iam.ListPolicyVersionsAPIClient = (ServiceIAM)(nil)
+	_ iam.ListPoliciesAPIClient       = ServiceIAM(nil)
+	_ iam.ListPolicyVersionsAPIClient = ServiceIAM(nil)
 )
 
 // App provides functionality for interacting with the AWS IAM service.
